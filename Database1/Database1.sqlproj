@@ -71,13 +71,17 @@
     <Build Include="View\viAddress.sql" />
     <Build Include="View\viDepartment.sql" />
     <Build Include="View\viEmployee.sql" />
-    <Build Include="StoredProcedures\spNewCompany.sql" />
-    <Build Include="StoredProcedures\spNewEmployee.sql" />
     <Build Include="Table\Address2Company.sql" />
     <Build Include="Table\Address2Employee.sql" />
     <Build Include="View\viAddress2Company.sql" />
     <Build Include="View\viAddress2Employee.sql" />
-    <Build Include="StoredProcedures\spNewDepartment.sql" />
     <Build Include="ScaledFunctions\fnGetGender.sql" />
+    <Build Include="StoredProcedures\spCrReCompany.sql" />
+    <Build Include="StoredProcedures\spCrReEmployee.sql" />
+    <Build Include="StoredProcedures\spRestoreRow.sql" />
+    <Build Include="StoredProcedures\spCrReDepartment.sql" />
+    <Build Include="StoredProcedures\spCrReAddress.sql" />
+    <Build Include="StoredProcedures\spAssignAddress2Employee.sql" />
+    <Build Include="StoredProcedures\spAssignAddress2Company.sql" />
   </ItemGroup>
 </Project>

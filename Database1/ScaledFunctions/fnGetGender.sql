@@ -1,6 +1,6 @@
 ﻿CREATE FUNCTION [dbo].[fnGetGender]
 (
-	@Gender int
+	@Gender INT
 )
 RETURNS NVARCHAR(256)
 AS
@@ -9,5 +9,5 @@ BEGIN
 		WHEN 1 THEN 'male'
 		WHEN 2 THEN 'female'
 		WHEN 3 THEN 'attack helicopter'
-		ELSE 'unknown' END
+		ELSE 'unknown' END;
 END
