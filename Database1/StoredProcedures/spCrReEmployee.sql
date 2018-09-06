@@ -22,11 +22,11 @@ BEGIN
 		BEGIN
 			UPDATE [dbo].[Employee]
 			SET 
-				[FirstName] = @FirstName,
-				[LastName] = @LastName,
-				[Gender] = @Gender,
-				[BirthDate] = @BirthDate,
-				[DepartmentId] = @DepartmentId
+				[FirstName] = ISNULL(@FirstName, [FirstName]),
+				[LastName] = ISNULL(@LastName, [LastName]),
+				[Gender] = ISNULL(@Gender, [Gender]),
+				[BirthDate] = ISNULL(@BirthDate, [BirthDate]),
+				[DepartmentId] = ISNULL(@DepartmentId, [DepartmentId])
 			WHERE Id = @Id;
 		END
 	RETURN @DBId;

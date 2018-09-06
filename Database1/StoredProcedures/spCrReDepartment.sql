@@ -20,9 +20,9 @@ BEGIN
 		BEGIN
 			UPDATE [dbo].[Department]
 			SET 
-				[DepartmentName] = @DepartmentName,
-				[ManagerId] = @ManagerId,
-				[CompanyId] = @CompanyId
+				[DepartmentName] = ISNULL(@DepartmentName, [DepartmentName]),
+				[ManagerId] = ISNULL(@ManagerId, [ManagerId]),
+				[CompanyId] = ISNULL(@CompanyId, [CompanyId])
 			WHERE Id = @Id;
 		END
 	RETURN @DBId;
