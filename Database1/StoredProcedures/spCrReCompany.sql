@@ -17,7 +17,7 @@ BEGIN
 	ELSE
 		BEGIN
 			UPDATE [dbo].[Company]
-			SET [CompanyName] = @CompanyName
+			SET [CompanyName] = ISNULL(@CompanyName, [CompanyName])
 			WHERE Id = @Id;
 		END
 	RETURN @DBId;
