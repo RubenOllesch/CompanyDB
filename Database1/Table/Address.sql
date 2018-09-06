@@ -6,5 +6,5 @@
 	[ZIP] NVARCHAR(64) NOT NULL,
 	[Street] VARCHAR(256) NOT NULL,
 	[CreationTime] DATETIME NOT NULL DEFAULT getDate(),
-	[DeletionTime] DATETIME,
+	[DeletionTime] DATETIME
 )

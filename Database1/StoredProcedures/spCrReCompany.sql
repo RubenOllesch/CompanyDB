@@ -4,22 +4,22 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT
-	SET @DBId = (SELECT Id FROM Company WHERE Id = @Id)
+	DECLARE @DBId INT;
+	SET @DBId = (SELECT Id FROM Company WHERE Id = @Id);
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Company]
 				([CompanyName])
 			VALUES
-				(@CompanyName)
-			SET @DBId = (SELECT SCOPE_IDENTITY())
+				(@CompanyName);
+			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
 			UPDATE [dbo].[Company]
 			SET [CompanyName] = @CompanyName
-			WHERE Id = @Id
+			WHERE Id = @Id;
 		END
-	RETURN @DBId
+	RETURN @DBId;
 END
 GO

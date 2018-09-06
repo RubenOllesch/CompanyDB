@@ -6,15 +6,15 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT
-	SET @DBId = (SELECT Id FROM Department WHERE Id = @Id)
+	DECLARE @DBId INT;
+	SET @DBId = (SELECT Id FROM Department WHERE Id = @Id);
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Department]
 				([DepartmentName], [ManagerId], [CompanyId])
 			VALUES
-				(@DepartmentName, @ManagerId, @CompanyId)
-			SET @DBId = (SELECT SCOPE_IDENTITY())
+				(@DepartmentName, @ManagerId, @CompanyId);
+			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
@@ -23,8 +23,8 @@ BEGIN
 				[DepartmentName] = @DepartmentName,
 				[ManagerId] = @ManagerId,
 				[CompanyId] = @CompanyId
-			WHERE Id = @Id
+			WHERE Id = @Id;
 		END
-	RETURN @DBId
+	RETURN @DBId;
 END
 GO

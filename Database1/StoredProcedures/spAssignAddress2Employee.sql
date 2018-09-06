@@ -7,6 +7,6 @@ BEGIN
 		INSERT INTO Address2Employee
 			([AddressId], [EmployeeId])
 		VALUES
-			(@AddressId, @EmployeeId)
+			(@AddressId, @EmployeeId);
 END
 RETURN 0

@@ -7,6 +7,6 @@ BEGIN
 		INSERT INTO Address2Company
 			([AddressId], [CompanyId])
 		VALUES
-			(@AddressId, @CompanyId)
+			(@AddressId, @CompanyId);
 END
 RETURN 0

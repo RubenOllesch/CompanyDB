@@ -7,15 +7,15 @@
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT
-	SET @DBId = (SELECT Id FROM [Address] WHERE Id = @Id)
+	DECLARE @DBId INT;
+	SET @DBId = (SELECT Id FROM [Address] WHERE Id = @Id);
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Address]
 				([Country], [City], [ZIP], [Street])
 			VALUES
-				(@Country, @City, @ZIP, @Street)
-			SET @DBId = (SELECT SCOPE_IDENTITY())
+				(@Country, @City, @ZIP, @Street);
+			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
@@ -25,8 +25,8 @@ BEGIN
 				[City] = @City,
 				[ZIP] = @ZIP,
 				[Street] = @ZIP
-			WHERE Id = @Id
+			WHERE Id = @Id;
 		END
-	RETURN @DBId
+	RETURN @DBId;
 END
 GO
