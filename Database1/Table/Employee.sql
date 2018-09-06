@@ -1,9 +1,10 @@
 ﻿CREATE TABLE [dbo].[Employee]
 (
-	[Id] INT NOT NULL IDENTITY PRIMARY KEY,
-	[FirstName] VARCHAR(256) NOT NULL,
-	[LastName] VARCHAR(256) NOT NULL,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[FirstName] NVARCHAR(256) NOT NULL,
+	[LastName] NVARCHAR(256) NOT NULL,
+	[Gender] INT NOT NULL DEFAULT 0,
 	[DepartmentId] INT FOREIGN KEY REFERENCES Department(Id),
-	[CreationTime] DATETIME NOT NULL DEFAULT getDate(),
-	[DeletionTime] DATETIME,
+	[CreationTime] DATETIME2 NOT NULL DEFAULT getDate(),
+	[DeletionTime] DATETIME2,
 )
