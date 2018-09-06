@@ -78,7 +78,6 @@
     <Build Include="ScaledFunctions\fnGetGender.sql" />
     <Build Include="StoredProcedures\spCrReCompany.sql" />
     <Build Include="StoredProcedures\spCrReEmployee.sql" />
-    <Build Include="StoredProcedures\spRestoreRow.sql" />
     <Build Include="StoredProcedures\spCrReDepartment.sql" />
     <Build Include="StoredProcedures\spCrReAddress.sql" />
     <Build Include="StoredProcedures\spAssignAddress2Employee.sql" />

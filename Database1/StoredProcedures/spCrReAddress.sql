@@ -21,10 +21,10 @@ BEGIN
 		BEGIN
 			UPDATE [dbo].[Address]
 			SET 
-				[Country] = @Country,
-				[City] = @City,
-				[ZIP] = @ZIP,
-				[Street] = @ZIP
+				[Country] = ISNULL(@Country, [Country]),
+				[City] = ISNULL(@City, [City]),
+				[ZIP] = ISNULL(@ZIP, [ZIP]),
+				[Street] = ISNULL(@Street, [Street])
 			WHERE Id = @Id;
 		END
 	RETURN @DBId;
