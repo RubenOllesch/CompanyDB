@@ -1,6 +1,6 @@
 ﻿CREATE FUNCTION [dbo].[fnGetGender]
 (
-	@Gender int
+	@Gender INT
 )
 RETURNS NVARCHAR(256)
 AS

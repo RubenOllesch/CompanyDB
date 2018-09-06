@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE spCreateOrUpdate
+﻿CREATE PROCEDURE spCrReCompany
    @CompanyName NVARCHAR(256),
    @Id INT
 AS
