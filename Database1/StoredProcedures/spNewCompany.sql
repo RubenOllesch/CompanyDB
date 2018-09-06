@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spNewCompany]
-	@companyName varchar(256)
+	@companyName VARCHAR(256)
 AS
 	INSERT INTO Company (CompanyName)
 	VALUES (@companyName)
