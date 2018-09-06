@@ -5,7 +5,6 @@
 	[City] NVARCHAR(256) NOT NULL,
 	[ZIP] NVARCHAR(64) NOT NULL,
 	[Street] VARCHAR(256) NOT NULL,
-	[CompanyId] INT NOT NULL FOREIGN KEY REFERENCES Company(Id),
 	[CreationTime] DATETIME NOT NULL DEFAULT getDate(),
 	[DeletionTime] DATETIME,
 )
