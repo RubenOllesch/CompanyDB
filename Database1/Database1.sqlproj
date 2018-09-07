@@ -73,8 +73,8 @@
     <Build Include="View\viEmployee.sql" />
     <Build Include="Table\Address2Company.sql" />
     <Build Include="Table\Address2Employee.sql" />
-    <Build Include="View\viAddress2Company.sql" />
-    <Build Include="View\viAddress2Employee.sql" />
+    <Build Include="View\viCompanyAddress.sql" />
+    <Build Include="View\viEmployeeAddress.sql" />
     <Build Include="ScaledFunctions\fnGetGender.sql" />
     <Build Include="StoredProcedures\spCrReCompany.sql" />
     <Build Include="StoredProcedures\spCrReEmployee.sql" />

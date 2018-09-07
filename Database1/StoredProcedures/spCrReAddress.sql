@@ -12,9 +12,19 @@ BEGIN
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Address]
-				([Country], [City], [ZIP], [Street])
+				(
+				[Country],
+				[City],
+				[ZIP],
+				[Street]
+				)
 			VALUES
-				(@Country, @City, @ZIP, @Street);
+				(
+				@Country,
+				@City,
+				@ZIP,
+				@Street
+				);
 			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE

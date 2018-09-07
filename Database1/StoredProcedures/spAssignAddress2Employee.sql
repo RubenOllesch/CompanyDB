@@ -5,8 +5,14 @@ AS
 BEGIN
 	IF((SELECT AddressId FROM Address2Employee WHERE AddressId = @AddressId AND EmployeeId = @EmployeeId) IS NULL)
 		INSERT INTO Address2Employee
-			([AddressId], [EmployeeId])
+			(
+			[AddressId],
+			[EmployeeId]
+			)
 		VALUES
-			(@AddressId, @EmployeeId);
+			(
+			@AddressId,
+			@EmployeeId
+			);
 END
 RETURN 0

@@ -11,9 +11,17 @@ BEGIN
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Department]
-				([DepartmentName], [ManagerId], [CompanyId])
+				(
+				[DepartmentName],
+				[ManagerId],
+				[CompanyId]
+				)
 			VALUES
-				(@DepartmentName, @ManagerId, @CompanyId);
+				(
+				@DepartmentName,
+				@ManagerId,
+				@CompanyId
+				);
 			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE

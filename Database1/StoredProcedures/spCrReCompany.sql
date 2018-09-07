@@ -9,9 +9,13 @@ BEGIN
 	IF(@DBId IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Company]
-				([CompanyName])
+				(
+				[CompanyName]
+				)
 			VALUES
-				(@CompanyName);
+				(
+				@CompanyName
+				);
 			SET @DBId = (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
