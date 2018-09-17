@@ -1,14 +1,12 @@
 ﻿CREATE PROCEDURE spCrReDepartment
-   @DepartmentName NVARCHAR(256),
-   @ManagerId INT,
-   @CompanyId INT,
-   @Id INT
+   @DepartmentName NVARCHAR(256) = NULL,
+   @ManagerId INT = NULL,
+   @CompanyId INT = NULL,
+   @Id INT = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT;
-	SET @DBId = (SELECT Id FROM Department WHERE Id = @Id);
-	IF(@DBId IS NULL)
+	IF NOT EXISTS (SELECT Id FROM Department WHERE Id = @Id AND DeletionTime IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Department]
 				(
@@ -22,7 +20,7 @@ BEGIN
 				@ManagerId,
 				@CompanyId
 				);
-			SET @DBId = (SELECT SCOPE_IDENTITY());
+			RETURN (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
@@ -32,7 +30,7 @@ BEGIN
 				[ManagerId] = ISNULL(@ManagerId, [ManagerId]),
 				[CompanyId] = ISNULL(@CompanyId, [CompanyId])
 			WHERE Id = @Id;
+			RETURN @Id;
 		END
-	RETURN @DBId;
 END
 GO

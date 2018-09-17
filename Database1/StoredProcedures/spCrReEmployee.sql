@@ -1,16 +1,14 @@
 ﻿CREATE PROCEDURE spCrReEmployee
-   @FirstName NVARCHAR(256),
-   @LastName NVARCHAR(256),
-   @Gender INT,
-   @BirthDate DATE,
-   @DepartmentId INT,
-   @Id INT
+   @FirstName NVARCHAR(256) = NULL,
+   @LastName NVARCHAR(256) = NULL,
+   @Gender INT = NULL,
+   @BirthDate DATE = NULL,
+   @DepartmentId INT = NULL,
+   @Id INT = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT;
-	SET @DBId = (SELECT Id FROM Employee WHERE Id = @Id AND DeletionTime IS NULL);
-	IF(@DBId IS NULL)
+	IF NOT EXISTS (SELECT Id FROM Employee WHERE Id = @Id AND DeletionTime IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Employee]
 				(
@@ -27,8 +25,8 @@ BEGIN
 				@Gender,
 				@Birthdate,
 				@DepartmentId
-				);
-			SET @DBId = (SELECT SCOPE_IDENTITY());
+				)
+			RETURN (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
@@ -40,7 +38,7 @@ BEGIN
 				[BirthDate] = ISNULL(@BirthDate, [BirthDate]),
 				[DepartmentId] = ISNULL(@DepartmentId, [DepartmentId])
 			WHERE Id = @Id;
+			RETURN @Id;
 		END
-	RETURN @DBId;
 END
 GO

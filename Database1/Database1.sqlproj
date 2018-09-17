@@ -82,5 +82,8 @@
     <Build Include="StoredProcedures\spCrReAddress.sql" />
     <Build Include="StoredProcedures\spAssignAddress2Employee.sql" />
     <Build Include="StoredProcedures\spAssignAddress2Company.sql" />
+    <Build Include="StoredProcedures\spDeleteAddress.sql" />
+    <Build Include="StoredProcedures\spDeleteCompany.sql" />
+    <Build Include="StoredProcedures\spDeleteEmployee.sql" />
   </ItemGroup>
 </Project>

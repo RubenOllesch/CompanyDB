@@ -1,15 +1,13 @@
 ﻿CREATE PROCEDURE spCrReAddress
-   @Country NVARCHAR(256),
-   @City NVARCHAR(256),
-   @ZIP NVARCHAR(64),
-   @Street NVARCHAR(256),
-   @Id INT
+   @Country NVARCHAR(256) = NULL,
+   @City NVARCHAR(256) = NULL,
+   @ZIP NVARCHAR(64) = NULL,
+   @Street NVARCHAR(256) = NULL,
+   @Id INT = NULL
 AS
 BEGIN
 	SET NOCOUNT ON;
-	DECLARE @DBId INT;
-	SET @DBId = (SELECT Id FROM [Address] WHERE Id = @Id);
-	IF(@DBId IS NULL)
+	IF NOT EXISTS (SELECT Id FROM [Address] WHERE Id = @Id AND DeletionTime IS NULL)
 		BEGIN
 			INSERT INTO [dbo].[Address]
 				(
@@ -25,7 +23,7 @@ BEGIN
 				@ZIP,
 				@Street
 				);
-			SET @DBId = (SELECT SCOPE_IDENTITY());
+			RETURN (SELECT SCOPE_IDENTITY());
 		END
 	ELSE
 		BEGIN
@@ -36,7 +34,7 @@ BEGIN
 				[ZIP] = ISNULL(@ZIP, [ZIP]),
 				[Street] = ISNULL(@Street, [Street])
 			WHERE Id = @Id;
+			RETURN @Id;
 		END
-	RETURN @DBId;
 END
 GO
